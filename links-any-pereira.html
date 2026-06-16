@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Any Pereira • Fé + Maternidade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ouro:      #B8924A;
+  --ouro-clr:  #F5EDD8;
+  --ouro-med:  #D4AA6A;
+  --bege:      #F7F2EA;
+  --bege2:     #EDE4D4;
+  --marrom:    #6B4E2A;
+  --cinza:     #5C5248;
+  --cinza-clr: #9A9088;
+  --branco:    #FDFAF5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bege);
+  font-family: 'Jost', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 0 60px 0;
+}
+
+/* ── fundo com textura sutil ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(184,146,74,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(184,146,74,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.container {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 480px;
+  padding: 0 20px;
+}
+
+/* ── TOPO / PERFIL ── */
+.perfil {
+  text-align: center;
+  padding: 52px 0 36px;
+}
+
+.avatar-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.avatar-ring {
+  width: 92px; height: 92px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--ouro-med), var(--ouro), #8B6A30);
+  padding: 2.5px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto;
+}
+
+.avatar-inner {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: var(--bege2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px;
+  border: 3px solid var(--branco);
+}
+
+.perfil-nome {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--marrom);
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.perfil-handle {
+  font-size: 13px;
+  color: var(--ouro);
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.perfil-bio {
+  font-size: 14px;
+  color: var(--cinza);
+  line-height: 1.75;
+  max-width: 300px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+.perfil-bio em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--ouro);
+  font-size: 15px;
+}
+
+/* ── DIVISOR ── */
+.divisor {
+  display: flex; align-items: center; gap: 12px;
+  margin: 28px 0 24px;
+}
+.divisor-linha { flex: 1; height: 1px; background: var(--bege2); }
+.divisor-cruz {
+  color: var(--ouro);
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ── SEÇÃO DE LINKS ── */
+.secao-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--cinza-clr);
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+.links-grupo { margin-bottom: 28px; }
+
+/* ── LINK CARD ── */
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--branco);
+  border: 1.5px solid var(--bege2);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: var(--cinza);
+  transition: all 0.22s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.link-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--ouro-med), var(--ouro));
+  border-radius: 3px 0 0 3px;
+  opacity: 0;
+  transition: opacity 0.22s;
+}
+
+.link-card:hover {
+  border-color: var(--ouro-med);
+  background: var(--ouro-clr);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(184,146,74,0.15);
+}
+
+.link-card:hover::before { opacity: 1; }
+
+/* destaque — link principal */
+.link-card.destaque {
+  background: linear-gradient(135deg, #F9F2E3 0%, #F0E6CC 100%);
+  border-color: var(--ouro-med);
+}
+.link-card.destaque::before { opacity: 1; }
+
+.link-icone {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.link-texto { flex: 1; min-width: 0; }
+
+.link-titulo {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--marrom);
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link-sub {
+  font-size: 12px;
+  color: var(--cinza-clr);
+  font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link-seta {
+  color: var(--ouro);
+  font-size: 16px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* badge "em breve" */
+.badge-breve {
+  position: absolute;
+  top: 10px; right: 14px;
+  background: var(--bege2);
+  color: var(--cinza-clr);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+/* badge "grátis" */
+.badge-gratis {
+  position: absolute;
+  top: 10px; right: 14px;
+  background: #E8F5E9;
+  color: #4A7A4A;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+/* badge preço */
+.badge-preco {
+  position: absolute;
+  top: 10px; right: 14px;
+  background: var(--ouro-clr);
+  color: var(--ouro);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+/* card desabilitado */
+.link-card.inativo {
+  opacity: 0.55;
+  cursor: default;
+}
+.link-card.inativo:hover {
+  transform: none;
+  box-shadow: none;
+  background: var(--branco);
+  border-color: var(--bege2);
+}
+
+/* ── VERSÍCULO ── */
+.versiculo {
+  background: linear-gradient(135deg, var(--ouro-clr), #EDE0C4);
+  border-radius: 14px;
+  padding: 20px 24px;
+  text-align: center;
+  margin-bottom: 28px;
+  border: 1px solid rgba(184,146,74,0.2);
+}
+
+.versiculo p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--marrom);
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+
+.versiculo cite {
+  font-size: 11px;
+  font-style: normal;
+  color: var(--ouro);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ── REDES SOCIAIS ── */
+.redes {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.rede-btn {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--branco);
+  border: 1.5px solid var(--bege2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.rede-btn:hover {
+  border-color: var(--ouro-med);
+  background: var(--ouro-clr);
+  transform: translateY(-2px);
+}
+
+/* ── RODAPÉ ── */
+.rodape {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.rodape p {
+  font-size: 11px;
+  color: var(--cinza-clr);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.rodape strong {
+  color: var(--ouro);
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- PERFIL -->
+  <div class="perfil">
+    <div class="avatar-wrap">
+      <div class="avatar-ring">
+        <div class="avatar-inner">🌿</div>
+      </div>
+    </div>
+    <div class="perfil-nome">Any Pereira</div>
+    <div class="perfil-handle">@eusouanypereira</div>
+    <p class="perfil-bio">
+      Fé e maternidade real ✝️<br>
+      <em>Mãe cristã · Mãe atípica</em><br>
+      Conteúdo para mães que buscam Deus na rotina 🌿
+    </p>
+  </div>
+
+  <!-- DIVISOR -->
+  <div class="divisor">
+    <div class="divisor-linha"></div>
+    <div class="divisor-cruz">✦</div>
+    <div class="divisor-linha"></div>
+  </div>
+
+  <!-- GRUPO 1 — GRATUITOS -->
+  <div class="links-grupo">
+    <div class="secao-label">Presentes para você</div>
+
+    <a class="link-card destaque" href="#">
+      <div class="link-icone" style="background:#EBF2EC">📖</div>
+      <div class="link-texto">
+        <div class="link-titulo">Devocional 7 Dias de Fé na Rotina</div>
+        <div class="link-sub">Para mães cansadas encontrarem Deus no dia a dia</div>
+      </div>
+      <div class="link-seta">›</div>
+      <span class="badge-gratis">Grátis</span>
+    </a>
+
+    <a class="link-card" href="#">
+      <div class="link-icone" style="background:#FDF5E8">🙏</div>
+      <div class="link-texto">
+        <div class="link-titulo">30 Orações para Cobrir Seus Filhos</div>
+        <div class="link-sub">Uma oração por dia, em cada área da vida deles</div>
+      </div>
+      <div class="link-seta">›</div>
+      <span class="badge-gratis">Grátis</span>
+    </a>
+
+    <a class="link-card" href="#">
+      <div class="link-icone" style="background:#F5F0FA">💜</div>
+      <div class="link-texto">
+        <div class="link-titulo">Guia da Mãe Atípica</div>
+        <div class="link-sub">Fé, acolhimento e seus direitos numa só leitura</div>
+      </div>
+      <div class="link-seta">›</div>
+      <span class="badge-gratis">Grátis</span>
+    </a>
+  </div>
+
+  <!-- DIVISOR -->
+  <div class="divisor">
+    <div class="divisor-linha"></div>
+    <div class="divisor-cruz">✦</div>
+    <div class="divisor-linha"></div>
+  </div>
+
+  <!-- GRUPO 2 — PRODUTOS -->
+  <div class="links-grupo">
+    <div class="secao-label">Materiais digitais</div>
+
+    <a class="link-card" href="#">
+      <div class="link-icone" style="background:#FDF5E8">💜</div>
+      <div class="link-texto">
+        <div class="link-titulo">Kit da Mãe Atípica Organizada</div>
+        <div class="link-sub">Rotina visual · Cartões · Guia da Professora · Oração</div>
+      </div>
+      <div class="link-seta">›</div>
+      <span class="badge-preco">R$ 37</span>
+    </a>
+
+    <div class="link-card inativo">
+      <div class="link-icone" style="background:#F7F2EA">📚</div>
+      <div class="link-texto">
+        <div class="link-titulo">E-book — em breve</div>
+        <div class="link-sub">Novidade chegando em breve para você 🌿</div>
+      </div>
+      <div class="link-seta" style="opacity:0.3">›</div>
+      <span class="badge-breve">Em breve</span>
+    </div>
+
+    <div class="link-card inativo">
+      <div class="link-icone" style="background:#F7F2EA">🛍️</div>
+      <div class="link-texto">
+        <div class="link-titulo">Produtos que uso e recomendo</div>
+        <div class="link-sub">Itens favoritos da rotina de mãe cristã</div>
+      </div>
+      <div class="link-seta" style="opacity:0.3">›</div>
+      <span class="badge-breve">Em breve</span>
+    </div>
+  </div>
+
+  <!-- VERSÍCULO -->
+  <div class="versiculo">
+    <p>"Tudo posso naquele que me fortalece."</p>
+    <cite>Filipenses 4:13</cite>
+  </div>
+
+  <!-- REDES SOCIAIS -->
+  <div class="redes">
+    <a class="rede-btn" href="https://instagram.com/eusouanypereira" title="Instagram">📸</a>
+    <a class="rede-btn" href="#" title="WhatsApp">💬</a>
+    <a class="rede-btn" href="#" title="E-mail">✉️</a>
+  </div>
+
+  <!-- RODAPÉ -->
+  <div class="rodape">
+    <p>Feito com fé e amor por <strong>Any Pereira</strong> 🌿✝️</p>
+  </div>
+
+</div>
+</body>
+</html>
